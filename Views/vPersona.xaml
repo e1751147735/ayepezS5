@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ayepezS5.Views.vPersona"
+             Title="Personas">
+    <Grid Padding="15"
+          RowSpacing="15"
+          RowDefinitions="Auto,Auto,Auto,*">
+        <Label
+            Grid.Row="0"
+            Text="Semana 5: BASES DE DATOS LOCALES"
+            FontSize="20"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+        <Entry x:Name="txtName"
+               Grid.Row="1"
+               Placeholder="Ingresa el nombre"/>
+
+        <Grid Grid.Row="2"
+              Padding="5"
+              RowSpacing="5"
+              ColumnSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnAgregar"
+                    Text="Agregar Persona"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Clicked="btnAgregar_Clicked"/>
+            <Label x:Name="lblStatusMessage"
+                   TextColor="Red"
+                   Grid.Row="1"
+                   Grid.Column="0"/>
+            <Button x:Name="btnMostrar"
+                    Text="Mostrar Personas"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Clicked="btnMostrar_Clicked"/>
+        </Grid>
+
+        <CollectionView x:Name="cvPersonas"
+                        Grid.Row="3">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,*" Padding="5">
+                        <Label Grid.Column="0" Text="{Binding Id}" />
+                        <Label Grid.Column="1" Text="{Binding Name}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
