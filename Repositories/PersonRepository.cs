@@ -77,5 +77,21 @@ namespace ayepezS5.Repositories
         }
 
         //UPDATE (tarea)
+        public void UpdatePerson(int id, string name)
+        {
+            try
+            {
+                Init();
+                if (string.IsNullOrEmpty(name))
+                    throw new Exception("Nombre es requerido");
+                Persona persona = new() { Id = id, Name = name };
+                _conn.Update(persona);
+                StatusMessage = string.Format("Dato Actualizado");
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Error: {0}", ex.Message);
+            }
+        }
     }
 }
