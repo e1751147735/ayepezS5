@@ -62,6 +62,19 @@ namespace ayepezS5.Repositories
         }
 
         //DELETE (taller)
+        public void DeletePerson(int id)
+        {
+            try
+            {
+                Init();
+                _conn.Delete<Persona>(id);
+                StatusMessage = string.Format("Dato Eliminado");
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Error: {0}", ex.Message);
+            }
+        }
 
         //UPDATE (tarea)
     }

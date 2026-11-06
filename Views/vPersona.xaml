@@ -48,9 +48,15 @@
                         Grid.Row="3">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ColumnDefinitions="*,*" Padding="5">
-                        <Label Grid.Column="0" Text="{Binding Id}" />
-                        <Label Grid.Column="1" Text="{Binding Name}" />
+                    <Grid ColumnDefinitions="*,3*,Auto" Padding="5">
+                        <Label Grid.Column="0" Text="{Binding Id}" VerticalOptions="Center" />
+                        <Label Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center" />
+                        <Button Grid.Column="2"
+                                Text="&#x1F5D1;"
+                                FontSize="20"
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                Clicked="btnEliminar_Clicked"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
